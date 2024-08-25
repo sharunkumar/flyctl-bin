@@ -1,1 +1,3 @@
+BUILDDIR=$HOME
+
 makepkg -si
