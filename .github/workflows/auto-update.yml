@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: archlinux:latest # Use the official Arch Linux container
+      image: archlinux:latest
 
     steps:
       - name: Update packages and install dependencies
@@ -20,4 +20,4 @@ jobs:
           pacman -Sy --noconfirm
           pacman -Syu --noconfirm base-devel git
       - uses: actions/checkout@v3
-      - run: makepkg -si --noconfirm # Example for building a package
+      - run: makepkg -si --noconfirm
