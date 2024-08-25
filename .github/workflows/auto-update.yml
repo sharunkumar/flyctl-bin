@@ -20,4 +20,10 @@ jobs:
           pacman -Sy --noconfirm
           pacman -Syu --noconfirm base-devel git
       - uses: actions/checkout@v3
-      - run: makepkg -si --noconfirm
+      - name: Create non-root user
+        run: |
+          useradd -m builder
+          echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+      - name: Build package as non-root user
+        run: |
+          sudo -u builder bash .github/workflows/auto-update.sh
