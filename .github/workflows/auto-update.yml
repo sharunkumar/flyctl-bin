@@ -30,4 +30,6 @@ jobs:
           chmod +x .github/workflows/setup-builder.sh
           ./.github/workflows/setup-builder.sh
       - name: Build package as non-root user
-        run: runuser builder --command 'bash -l -c .github/workflows/build.sh'
+        run: |
+          chmod +x .github/workflows/build.sh
+          runuser builder --command 'bash -l -c .github/workflows/build.sh'
