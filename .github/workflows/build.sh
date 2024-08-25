@@ -1,3 +1,3 @@
-BUILDDIR=$HOME
+export BUILDDIR=$HOME
 
 makepkg -si
