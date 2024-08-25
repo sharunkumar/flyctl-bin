@@ -17,13 +17,17 @@ jobs:
     steps:
       - name: Update packages and install dependencies
         run: |
-          pacman -Sy --noconfirm
-          pacman -Syu --noconfirm base-devel git
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm --needed --overwrite '*' \
+            openssh sudo \
+            git fakeroot binutils gcc awk binutils xz \
+            libarchive bzip2 coreutils file findutils \
+            gettext grep gzip sed ncurses util-linux \
+            pacman-contrib debugedit
       - uses: actions/checkout@v3
       - name: Create non-root user
         run: |
-          useradd -m builder
-          echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+          chmod +x .github/workflows/setup-builder.sh
+          ./.github/workflows/setup-builder.sh
       - name: Build package as non-root user
-        run: |
-          sudo -u builder bash .github/workflows/auto-update.sh
+        run: runuser builder --command 'bash -l -c .github/workflows/build.sh'
