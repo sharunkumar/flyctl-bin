@@ -15,8 +15,10 @@ updpkgsums
 
 makepkg --printsrcinfo >.SRCINFO
 
-# Commit and push the changes if there are any
 if [[ -n $(git status -s) ]]; then
+    # Ensure build passes
+    makepkg --noconfirm -si
+
     git config --global user.email "sharun@sharunkumar.com"
     git config --global user.name "Sharun"
     git add PKGBUILD
