@@ -22,4 +22,6 @@ if [[ -n $(git status -s) ]]; then
     git add PKGBUILD
     git commit -m "chore: update to v$latest_version"
     git push
+else
+    echo "No changes to commit."
 fi
