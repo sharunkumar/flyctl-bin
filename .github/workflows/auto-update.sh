@@ -15,15 +15,5 @@ updpkgsums
 
 makepkg --printsrcinfo >.SRCINFO
 
-if [[ -n $(git status -s) ]]; then
-    # Ensure build passes
-    makepkg --noconfirm -si
-
-    git config --global user.email "sharun@sharunkumar.com"
-    git config --global user.name "Sharun"
-    git add PKGBUILD
-    git commit -m "chore: update to v$latest_version"
-    git push
-else
-    echo "No changes to commit."
-fi
+# Ensure build passes
+makepkg --noconfirm -si

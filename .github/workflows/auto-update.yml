@@ -5,8 +5,11 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+permissions:
+  contents: write
+
 jobs:
-  build:
+  auto-update:
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -15,3 +18,14 @@ jobs:
       - uses: sharunkumar/archlinux-docker-action@v1
         with:
           script: .github/workflows/auto-update.sh
+      - name: Check for changes and commit
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            source PKGBUILD
+            git config --global user.email "sharun@sharunkumar.com"
+            git config --global user.name "Sharun"
+            git commit -am "chore: update to v$pkgver"
+            git push
+          else
+              echo "No changes to commit."
+          fi
