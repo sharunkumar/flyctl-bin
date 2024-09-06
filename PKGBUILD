@@ -1,4 +1,5 @@
 # Maintainer: Jerome Gravel-Niquet <jeromegn@gmail.com>
+# Contributor: Sharun Kumar <sharun@sharunkumar.com>
 
 pkgname="flyctl-bin"
 pkgver="0.2.124"
