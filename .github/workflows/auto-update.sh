@@ -9,7 +9,7 @@ latest_version=$(curl -s https://api.github.com/repos/superfly/flyctl/releases/l
 latest_version=${latest_version#v}
 
 # Update the pkgver in PKGBUILD
-sed -i "s/^pkgver=.*/pkgver=$latest_version/" PKGBUILD
+sed -i "s/^pkgver=.*/pkgver=\"$latest_version\"/" PKGBUILD
 
 # # Commit and push the changes
 # git config --global user.email "github-actions[bot]@users.noreply.github.com"
