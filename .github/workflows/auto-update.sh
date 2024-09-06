@@ -19,7 +19,7 @@ if [[ -n $(git status -s) ]]; then
     # Ensure build passes
     makepkg --noconfirm -si
 
-    git config --global --add safe.directory '*'
+    git config --global --add safe.directory /github/workspace
     git config --global user.email "sharun@sharunkumar.com"
     git config --global user.name "Sharun"
     git add PKGBUILD
