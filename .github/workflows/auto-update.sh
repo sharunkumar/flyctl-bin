@@ -11,6 +11,10 @@ latest_version=${latest_version#v}
 # Update the pkgver in PKGBUILD
 sed -i "s/^pkgver=.*/pkgver=\"$latest_version\"/" PKGBUILD
 
+updpkgsums
+
+makepkg --printsrcinfo >.SRCINFO
+
 # # Commit and push the changes
 # git config --global user.email "github-actions[bot]@users.noreply.github.com"
 # git config --global user.name "GitHub Actions"
