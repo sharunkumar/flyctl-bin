@@ -1,0 +1,17 @@
+name: Auto Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sharunkumar/archlinux-docker-action@v1
+        with:
+          script: .github/workflows/auto-update.sh
