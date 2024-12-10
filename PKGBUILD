@@ -2,7 +2,7 @@
 # Contributor: Sharun Kumar <sharun@sharunkumar.com>
 
 pkgname="flyctl-bin"
-pkgver="0.3.47"
+pkgver="0.3.48"
 pkgrel="1"
 pkgdesc="Command line tools for fly.io services"
 arch=("x86_64")
@@ -12,7 +12,7 @@ depends=()
 provides=("flyctl")
 conflicts=("flyctl")
 source=("$pkgname-$pkgver.tgz::https://github.com/superfly/flyctl/releases/download/v${pkgver}/flyctl_${pkgver}_Linux_x86_64.tar.gz")
-sha256sums=('480f4f091afc2ad0259fe32feb5503b4b118a7f6e7f965499aa7f5b05d1edf57')
+sha256sums=('033c9c706846a0b2a6d77932ed77082c8657327c5275681a2576d127fff71828')
 
 package() {
     mkdir -p "$pkgdir/usr/bin"
