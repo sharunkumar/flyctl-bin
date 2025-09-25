@@ -1,13 +1,13 @@
 pkgbase = flyctl-bin
 	pkgdesc = Command line tools for fly.io services
-	pkgver = 0.3.184
+	pkgver = 0.3.185
 	pkgrel = 1
 	url = https://fly.io
 	arch = x86_64
 	license = Apache
 	provides = flyctl
 	conflicts = flyctl
-	source = flyctl-bin-0.3.184.tgz::https://github.com/superfly/flyctl/releases/download/v0.3.184/flyctl_0.3.184_Linux_x86_64.tar.gz
-	sha256sums = dc74fd3310c9723f9b5ca08a59c310ae2d1f2104559605b82004bc79f9014f7f
+	source = flyctl-bin-0.3.185.tgz::https://github.com/superfly/flyctl/releases/download/v0.3.185/flyctl_0.3.185_Linux_x86_64.tar.gz
+	sha256sums = dcf5e401867dec15a54126f148ed8b30216a3fb8e597468212e41eadd04a9788
 
 pkgname = flyctl-bin
